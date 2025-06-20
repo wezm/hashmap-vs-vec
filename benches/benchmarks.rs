@@ -45,6 +45,11 @@ macro_rules! bench_map {
 }
 
 #[bench]
+fn bench_vec_5(b: &mut Bencher) {
+    bench_vec!(b, 5);
+}
+
+#[bench]
 fn bench_vec_10(b: &mut Bencher) {
     bench_vec!(b, 10);
 }
@@ -70,6 +75,11 @@ fn bench_vec_1000(b: &mut Bencher) {
 }
 
 #[bench]
+fn bench_fxmap_5(b: &mut Bencher) {
+    bench_map!(b, 5, FxHashMap<u16, u16>, hashmap_vs_vec::fxmap);
+}
+
+#[bench]
 fn bench_fxmap_10(b: &mut Bencher) {
     bench_map!(b, 10, FxHashMap<u16, u16>, hashmap_vs_vec::fxmap);
 }
@@ -92,6 +102,11 @@ fn bench_fxmap_500(b: &mut Bencher) {
 #[bench]
 fn bench_fxmap_1000(b: &mut Bencher) {
     bench_map!(b, 1000, FxHashMap<u16, u16>, hashmap_vs_vec::fxmap);
+}
+
+#[bench]
+fn bench_map_5(b: &mut Bencher) {
+    bench_map!(b, 5, HashMap<u16, u16>, hashmap_vs_vec::map);
 }
 
 #[bench]
